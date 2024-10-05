@@ -16,9 +16,6 @@ export default async function Dashboard() {
         </div>
         <div className="flex-grow"></div>
         <div className="mb-10 flex justify-center">
-          <Link href="/registration">
-            <button className="px-4 py-2 bg-blue-500 text-white rounded">Register</button>
-          </Link>
         </div>
       </main>
     </>

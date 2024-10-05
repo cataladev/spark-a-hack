@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -14,7 +12,7 @@ const UserInputForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:YOUR_PORT/api/generateIdea', {
+      const res = await axios.post('http://localhost:3000/api/generateIdea', {
         schoolName,
         hackathonName,
         grade,
