@@ -11,6 +11,7 @@ import {
   useUser,
 } from "@clerk/nextjs";
 import { Noto_Sans } from "next/font/google";
+import * as Clerk from '@clerk/nextjs'
 
 // If loading a variable font, you don't need to specify the font weight
 const notoSans = Noto_Sans({
@@ -49,7 +50,11 @@ const NavBar = () => {
           </div>
           <div className="space-x-4">
             <SignedOut>
-              <SignInButton />
+              <SignInButton>
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+              Sign In
+            </button>
+            </SignInButton>
             </SignedOut>
             <SignedIn>
               <UserButton />

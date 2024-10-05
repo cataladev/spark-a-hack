@@ -10,7 +10,7 @@ import {
   UserButton,
   useUser,
 } from "@clerk/nextjs";
-import { AuthButton } from "./_components/authbutton";
+import { AuthButtonBottom } from "./_components/authButtonBottom";
 
 const PictureUrls = [
   {
@@ -92,7 +92,7 @@ export default async function HomePage() {
         <div className="flex-grow"></div>
         <div className="mb-10 flex justify-center">
           <Link href="/registration">
-            <AuthButton />
+            <AuthButtonBottom/>
           </Link>
         </div>
       </main>
