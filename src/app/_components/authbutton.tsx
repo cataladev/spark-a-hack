@@ -10,11 +10,13 @@ import {
   useUser,
 } from "@clerk/nextjs";
 
+
 export function AuthButton() {
   return (
     <><SignedOut>
       <SignInButton />
-    </SignedOut><SignedIn>
+    </SignedOut>
+    <SignedIn>
         <UserButton />
       </SignedIn></>
   );
