@@ -55,10 +55,11 @@ export const postRouter = createTRPCRouter({
       try {
         const prompt = JSON.stringify(requestData);
         response = await model.generateContent(prompt);
-        console.log(response.response.text());
+        const responseText = await response.response.text();
+        console.log(responseText);
 
-        // Extract relevant information from the response
-        const ideas = response.response.text().map((idea: any) => ({
+        // Assuming the responseText is a JSON string with an array of ideas
+        const ideas = JSON.parse(responseText).ideas.map((idea: any) => ({
           name: idea.name,
           reason: idea.reason,
         }));
