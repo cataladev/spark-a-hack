@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { api, HydrateClient } from "~/trpc/server";
-import NavBar from "../_components/navbar";
+import NavBar from "../_components/navbargen";
+import { ClerkProvider } from '@clerk/clerk-react';
+
 
 const PictureUrls = [
   {

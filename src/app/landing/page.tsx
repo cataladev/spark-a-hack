@@ -19,6 +19,7 @@ export default async function Home() {
       <NavBar />
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#969195] to-[#3C3744] text-white">
         <div className="flex flex-col items-center justify-center">
+        <img src={PictureUrls[0]?.spark1url} alt="Spark 3" className="w-full max-w-4xl h-auto mt-10" />
           </div>
         <div className="flex-grow"></div>
         <div className="flex justify-center mb-10">
