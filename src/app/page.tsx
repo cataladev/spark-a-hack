@@ -23,7 +23,10 @@ const PictureUrls = [
     spark4url:
       "https://utfs.io/f/No1xVDcvm1RwckSTJAnIok9uHGy5XfgalwjiM8YsUqZbxrTz",
     title: "Spark-a-Hack",
-    description: "Idk yet",
+      description: "hawkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk tuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      description2: "talkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk tuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahhhhhhh",
+      description3: "spit on that thanggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+      description4: "johnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn porkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
   },
 ];
 
@@ -32,11 +35,11 @@ export default async function HomePage() {
     <>
       <NavBar />
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#969195] to-[#3C3744] text-white">
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center">
           <img
             src={PictureUrls[0]?.spark1url}
             alt="Spark 3"
-            className="mt-10 h-auto w-full max-w-4xl"
+            className="w-full max-w-4xl h-auto mt-32 animate-fadeIn"
           />
           {/* Add YouTube embed under the logo */}
           <iframe
@@ -48,8 +51,43 @@ export default async function HomePage() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            className="mt-8"
+            className="mt-32 mb-16"
           ></iframe>
+
+<div className="flex w-full max-w-4xl mb-16 items-center">
+              <p className="text-sm text-left text-[#f1d302] p-4 font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
+                {PictureUrls[0]?.description}
+              </p>
+              <div className="w-0.5 h-96 bg-[#f1d302] mx-16"></div>
+              <div className="w-[48%]"></div>
+            </div>
+
+    
+            <div className="flex w-full max-w-4xl mb-16 items-center">
+              <div className="w-[48%]"></div> 
+              <div className="w-0.5 h-96 bg-[#f1d302] mx-8"></div> 
+              <p className="text-sm text-left text-[#f1d302] p-4  font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
+                {PictureUrls[0]?.description2}
+              </p>
+            </div>
+
+    
+            <div className="flex w-full max-w-4xl mb-16 items-center">
+              <p className="text-sm text-left text-[#f1d302] p-4  font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
+                {PictureUrls[0]?.description}
+              </p>
+              <div className="w-0.5 h-96 bg-[#f1d302] mx-8"></div>
+              <div className="w-[48%]"></div>
+            </div>
+
+            <div className="flex w-full max-w-4xl mb-16 items-center">
+              <div className="w-[48%] "></div> 
+              <div className="w-0.5 h-96 bg-[#f1d302] mx-8"></div> 
+              <p className="text-sm text-left text-[#f1d302] p-4 font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
+                {PictureUrls[0]?.description4}
+              </p>
+            </div>
+
         </div>
         <div className="flex-grow"></div>
         <div className="mb-10 flex justify-center">
