@@ -1,5 +1,13 @@
 import Link from 'next/link';
 
+import { Noto_Sans } from 'next/font/google'
+ 
+// If loading a variable font, you don't need to specify the font weight
+const notoSans = Noto_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+})  
+
 const PictureUrls = [
   {
     spark1url: "https://utfs.io/f/No1xVDcvm1RwL4EtfFRBlTDo3f5IFaAPCwSgVOWUZzsjYMtQ",
@@ -13,6 +21,7 @@ const PictureUrls = [
 
 const NavBar = () => {
   return (
+    <div className={notoSans.className}>
     <nav className="w-full bg-[#969195] p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-2xl font-bold">
@@ -21,10 +30,11 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="space-x-4">
-          <Link href="/login" className="text-[#3c3744] bg-[#f1d302] font-bold rounded-full px-3 py-3 hover:text-gray-300">Sign-In/Login</Link>
+          <Link href="/login" className="text-[#f1d302] bg-[#3c3744] font-bold rounded-full px-3 py-3 hover:text-[#3c3744] hover:bg-[#f1d302]">Sign-In/Login</Link>
         </div>
       </div>
     </nav>
+    </div>
   );
 };
 

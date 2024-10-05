@@ -21,8 +21,8 @@ export default async function Home() {
         <div className="flex-grow"></div>
         <div className="flex justify-center mb-10">
         <Link href="/registration">
-      <button className="rounded-full px-10 py-5 bg-[#3c3740] shadow hover:border-white-600 animate-pulse transform transition hover:scale-110">
-          Register Now!
+      <button className="rounded-full px-10 py-5 text-[#f1d302] bg-[#3c3744] font-bold hover:text-[#3c3744] hover:bg-[#f1d302] shadow animate-pulse transform transition hover:scale-110">
+        Try it out!
     </button>
     </Link>
     </div>
