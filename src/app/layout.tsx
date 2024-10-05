@@ -5,17 +5,17 @@ import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
-export const metadata: Metadata = {
- 
-};
+export const metadata: Metadata = {};
 
-import { Noto_Sans } from 'next/font/google'
- 
+import { Noto_Sans } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
+import { HydrateClient } from "~/trpc/server";
+
 // If loading a variable font, you don't need to specify the font weight
 const notoSans = Noto_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-})
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
@@ -23,7 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={notoSans.className}>
       <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+        <ClerkProvider>
+          <TRPCReactProvider>
+            <HydrateClient>
+            {children}
+            </HydrateClient>
+          </TRPCReactProvider>
+        </ClerkProvider>
       </body>
     </html>
   );

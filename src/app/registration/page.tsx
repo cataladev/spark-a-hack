@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { api, HydrateClient } from "~/trpc/server";
 import NavBar from "../_components/navbargen";
-import { ClerkProvider } from '@clerk/clerk-react';
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 
 const PictureUrls = [

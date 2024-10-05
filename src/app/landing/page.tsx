@@ -1,7 +1,9 @@
+
 import Link from "next/link";
 import { api, HydrateClient } from "~/trpc/server";
 import NavBar from "../_components/navbarland";
-import { useState } from 'react';
+import { ClerkProvider, SignIn, SignInButton, SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
+import { AuthButton } from "./authbutton";
 
 const PictureUrls = [
   {
@@ -14,7 +16,7 @@ const PictureUrls = [
   },
 ];
 
-export default async function Home() {
+export default async function HomePage() {
   return (
     <HydrateClient>
       <NavBar />
@@ -37,12 +39,11 @@ export default async function Home() {
         <div className="flex-grow"></div>
         <div className="flex justify-center mb-10">
           <Link href="/registration">
-            <button className="rounded-full px-10 py-5 text-[#f1d302] bg-[#3c3744] font-bold hover:text-[#3c3744] hover:bg-[#f1d302] shadow animate-pulse transform transition hover:scale-110">
-              Try it out!
-            </button>
+          <AuthButton/>
           </Link>
         </div>
       </main>
     </HydrateClient>
+    
   );
 }
