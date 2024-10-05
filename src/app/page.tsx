@@ -50,7 +50,7 @@ export default async function HomePage() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            className="mt-32 mb-16"
+            className="mt-32 mb-16 animate-fadeIn"
           ></iframe>
 
 <div className="flex w-full max-w-4xl mb-16 items-center">
