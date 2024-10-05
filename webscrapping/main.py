@@ -65,7 +65,7 @@ def scrape_winner_projects(page_number):
 # Function to scrape all pages
 def scrape_all_winner_projects():
     all_project_links = []
-    total_pages = 1000  # Total number of pages to scrape
+    total_pages = 50  # Total number of pages to scrape
     
     for page_number in range(1, total_pages + 1):
         try:
@@ -80,7 +80,7 @@ def scrape_all_winner_projects():
             print(f"Skipping page {page_number} due to error: {e}")
         
         # Add a randomized delay to prevent overloading the server and avoid rate limiting
-        time.sleep(random.uniform(5, 15))  # Adjust this value based on the site's rate limits
+        time.sleep(random.uniform(4, 13))  # Adjust this value based on the site's rate limits
 
     return all_project_links
 
