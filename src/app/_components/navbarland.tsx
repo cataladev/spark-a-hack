@@ -44,14 +44,14 @@ const NavBar = () => {
               <img
                 src={PictureUrls[0]?.spark2url}
                 alt="Landing"
-                className="h-20 object-cover"
+                className="h-20 object-cover animate-fadeIn"
               />
             </Link>
           </div>
-          <div className="space-x-4">
+          <div className="space-x-4 ">
             <SignedOut>
               <SignInButton>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 animate-fadeIn">
               Sign In
             </button>
             </SignInButton>

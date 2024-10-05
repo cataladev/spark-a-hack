@@ -41,7 +41,6 @@ export default async function HomePage() {
             alt="Spark 3"
             className="w-full max-w-4xl h-auto mt-32 animate-fadeIn"
           />
-          {/* Add YouTube embed under the logo */}
           <iframe
             width="560"
             height="315"
