@@ -1,15 +1,5 @@
 import Link from "next/link";
-import { api, HydrateClient } from "~/trpc/server";
 import NavBar from "./_components/navbarland";
-import {
-  ClerkProvider,
-  SignIn,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-  useUser,
-} from "@clerk/nextjs";
 import { AuthButtonBottom } from "./_components/authButtonBottom";
 
 const PictureUrls = [
@@ -23,10 +13,10 @@ const PictureUrls = [
     spark4url:
       "https://utfs.io/f/No1xVDcvm1RwckSTJAnIok9uHGy5XfgalwjiM8YsUqZbxrTz",
     title: "Spark-a-Hack",
-      description: "hawkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk tuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      description2: "talkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk tuaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahhhhhhh",
-      description3: "spit on that thanggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-      description4: "johnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn porkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+    description: "Spark-a-Hack is an AI powered tool that assists users with coming up with hackathon competition ideas and work flow",
+    description2: "Spark-a-Hack is an AI powered tool that assists users with coming up with hackathon competition ideas and work flow",
+    description3: "Spark-a-Hack is an AI powered tool that assists users with coming up with hackathon competition ideas and work flow",
+    description4: "Spark-a-Hack is an AI powered tool that assists users with coming up with hackathon competition ideas and work flow ",
   },
 ];
 
@@ -43,7 +33,7 @@ export default async function HomePage() {
           />
 
           <div className="mt-32 mb-20">
-          <AuthButtonBottom />
+            <AuthButtonBottom />
           </div>
 
           <iframe
@@ -58,45 +48,45 @@ export default async function HomePage() {
             className="mt-32 mb-16 animate-fadeIn"
           ></iframe>
 
-<div className="flex w-full max-w-4xl mb-16 items-center">
-              <p className="text-sm text-left text-[#f1d302] p-4 font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
-                {PictureUrls[0]?.description}
-              </p>
-              <div className="w-0.5 h-96 bg-[#f1d302] mx-8"></div>
-              <div className="w-[48%]"></div>
-            </div>
+          <div className="flex w-full max-w-4xl mb-16 items-center">
+            <p className="text-l text-right text-[#f1d302] p-4 font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
+              {PictureUrls[0]?.description}
+            </p>
+            <div className="w-0.5 h-96 bg-[#f1d302] mx-16"></div>
+            <div className="w-[48%]"></div>
+          </div>
 
-    
-            <div className="flex w-full max-w-4xl mb-16 items-center">
-              <div className="w-[48%]"></div> 
-              <div className="w-0.5 h-96 bg-[#f1d302] mx-8"></div> 
-              <p className="text-sm text-left text-[#f1d302] p-4  font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
-                {PictureUrls[0]?.description2}
-              </p>
-            </div>
 
-    
-            <div className="flex w-full max-w-4xl mb-16 items-center">
-              <p className="text-sm text-left text-[#f1d302] p-4  font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
-                {PictureUrls[0]?.description}
-              </p>
-              <div className="w-0.5 h-96 bg-[#f1d302] mx-8"></div>
-              <div className="w-[48%]"></div>
-            </div>
+          <div className="flex w-full max-w-4xl mb-16 items-center">
+            <div className="w-[48%]"></div>
+            <div className="w-0.5 h-96 bg-[#f1d302] mx-8"></div>
+            <p className="text-l text-left text-[#f1d302] p-4  font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
+              {PictureUrls[0]?.description2}
+            </p>
+          </div>
 
-            <div className="flex w-full max-w-4xl mb-16 items-center">
-              <div className="w-[48%] "></div> 
-              <div className="w-0.5 h-96 bg-[#f1d302] mx-8"></div> 
-              <p className="text-sm text-left text-[#f1d302] p-4 font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
-                {PictureUrls[0]?.description4}
-              </p>
-            </div>
+
+          <div className="flex w-full max-w-4xl mb-16 items-center">
+            <p className="text-l text-right text-[#f1d302] p-4  font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
+              {PictureUrls[0]?.description}
+            </p>
+            <div className="w-0.5 h-96 bg-[#f1d302] mx-8"></div>
+            <div className="w-[48%]"></div>
+          </div>
+
+          <div className="flex w-full max-w-4xl mb-16 items-center">
+            <div className="w-[48%] "></div>
+            <div className="w-0.5 h-96 bg-[#f1d302] mx-4"></div>
+            <p className="text-l text-left text-[#f1d302] mx- p-4 font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
+              {PictureUrls[0]?.description4}
+            </p>
+          </div>
 
         </div>
         <div className="flex-grow"></div>
         <div className="mb-10 flex justify-center">
           <Link href="/registration">
-            <AuthButtonBottom/>
+            <AuthButtonBottom />
           </Link>
         </div>
       </main>
