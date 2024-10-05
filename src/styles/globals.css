@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+<uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 100 to 900 
+*/
+
+
+
+@font-face { 
+    font-family: Noto Sans; src: url('/font/NotoSans-Regular.ttf'); 
+} 
+
+body {
+    font-family: Noto Sans;
+}
