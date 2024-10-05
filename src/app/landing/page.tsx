@@ -13,11 +13,20 @@ const PictureUrls = [
 ];
 
 export default async function Home() {
-
   return (
     <HydrateClient>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#969195] to-[#3C3744] text-white">
-      </main>
+        <div className="flex justify-center mt-4">
+        <Link href="/registration">
+      <button className="rounded-full px-10 py-5 bg-[#3c3740] shadow hover:border-white-600 animate-pulse transform transition hover:scale-110">
+        <style>
+          fontsize: 10px;
+        </style>
+          Register Now!
+    </button>
+    </Link>
+    </div>
+    </main>
     </HydrateClient>
   );
 }
