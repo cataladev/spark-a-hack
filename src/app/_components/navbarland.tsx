@@ -1,6 +1,8 @@
 import Link from 'next/link';
 
 import { Noto_Sans } from 'next/font/google'
+import { SignInToken } from '@clerk/nextjs/server';
+import { ClerkProvider, SignIn, SignInButton, SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
  
 // If loading a variable font, you don't need to specify the font weight
 const notoSans = Noto_Sans({
@@ -30,10 +32,10 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="space-x-4">
-        <Link href="/login"><button className="text-[#f1d302] bg-[#3c3744] font-bold rounded-full px-3 py-3 hover:text-[#3c3744] hover:bg-[#f1d302] shadow-lg hover:shadow-xl transform transition hover:scale-105">
-                Sign-In/Login
-              </button>
-            </Link>
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+            
         </div>
       </div>
     </nav>
