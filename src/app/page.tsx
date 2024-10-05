@@ -41,6 +41,11 @@ export default async function HomePage() {
             alt="Spark 3"
             className="w-full max-w-4xl h-auto mt-32 animate-fadeIn"
           />
+
+          <div className="mt-32 mb-20">
+          <AuthButtonBottom />
+          </div>
+
           <iframe
             width="560"
             height="315"
