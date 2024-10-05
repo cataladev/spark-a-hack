@@ -21,9 +21,10 @@ export function AuthButtonBottom() {
             </SignInButton>
         </SignedOut>
             <SignedIn>
-                <button className="rounded-full px-10 py-5 text-[#f1d302] bg-[#665d74] font-bold hover:text-[#3c3744] hover:bg-[#f1d302] shadow animate-pulse transform transition hover:scale-110">
+                <button className="rounded-full px-10 py-5 text-[#f1d302] bg-[#4e4759] font-bold hover:text-[#3c3744] hover:bg-[#f1d302] shadow animate-pulse transform transition hover:scale-110">
                     Dashboard
                 </button>
             </SignedIn></>
     );
 }
+    

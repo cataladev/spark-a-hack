@@ -62,7 +62,7 @@ export default async function HomePage() {
               <p className="text-sm text-left text-[#f1d302] p-4 font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
                 {PictureUrls[0]?.description}
               </p>
-              <div className="w-0.5 h-96 bg-[#f1d302] mx-16"></div>
+              <div className="w-0.5 h-96 bg-[#f1d302] mx-8"></div>
               <div className="w-[48%]"></div>
             </div>
 

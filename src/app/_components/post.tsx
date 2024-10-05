@@ -14,7 +14,7 @@ export function LatestPost() {
   });
 
   return (
-    <div className="w-full max-w-xs">
+    <div className="w-full max-w-xs mx-auto">
       {latestPost ? (
         <p className="truncate">Your most recent post: {latestPost.name}</p>
       ) : (
@@ -25,6 +25,7 @@ export function LatestPost() {
           e.preventDefault();
           createPost.mutate({ name });
         }}
+        className="flex flex-col items-center"
       >
         <input
           type="text"

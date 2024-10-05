@@ -58,7 +58,7 @@ const NavBar = () => {
             </SignedOut>
             <SignedIn>
               <div className="animate-fadeInslow">
-                <button className="rounded-full px-4 py-3 text-[#f1d302] bg-[#3c3744] font-bold animate-fadeInslow hover:text-[#3c3744] hover:bg-[#f1d302] shadow transform transition hover:scale-110">
+                <button className="flex items-center justify-center rounded-full px-4 py-3 text-[#f1d302] bg-[#3c3744] font-bold animate-fadeInslow hover:text-[#3c3744] hover:bg-[#f1d302] shadow transform transition hover:scale-110">
                 <UserButton />
                 </button> 
               </div>
