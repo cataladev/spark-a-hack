@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { api, HydrateClient } from "~/trpc/server";
-import NavBar from "../_components/navbar";
+import NavBar from "../_components/navbarland";
 
 const PictureUrls = [
   {
@@ -18,6 +18,8 @@ export default async function Home() {
     <HydrateClient>
       <NavBar />
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#969195] to-[#3C3744] text-white">
+        <div className="flex flex-col items-center justify-center">
+          </div>
         <div className="flex-grow"></div>
         <div className="flex justify-center mb-10">
         <Link href="/registration">
