@@ -40,18 +40,18 @@ const NavBar = () => {
       <nav className="w-full bg-[#969195] p-4 shadow-md">
         <div className="container mx-auto flex items-center justify-between">
           <div className="text-2xl font-bold text-white">
-            <Link href="/landing">
+            <Link href="/">
               <img
                 src={PictureUrls[0]?.spark2url}
                 alt="Landing"
-                className="h-20 object-cover animate-fadeIn"
+                className="h-20 object-cover animate-fadeIn transform transition hover:scale-110"
               />
             </Link>
           </div>
           <div className="space-x-4 ">
             <SignedOut>
               <SignInButton>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 animate-fadeIn">
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 animate-fadeInslow">
               Sign In
             </button>
             </SignInButton>
