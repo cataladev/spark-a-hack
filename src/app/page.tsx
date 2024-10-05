@@ -2,6 +2,12 @@ import Link from "next/link";
 import NavBar from "./_components/navbarland";
 import { AuthButtonBottom } from "./_components/authButtonBottom";
 import FadeInWhenVisible from "./_components/FadeWhenInvisible"; 
+import { Noto_Sans } from "next/font/google";
+
+const notoSans = Noto_Sans({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const PictureUrls = [
   {
@@ -26,6 +32,7 @@ export default function HomePage() {
     <>
       <NavBar />
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#969195] to-[#3C3744] text-white">
+        <div className={notoSans.className}>
         <div className="flex flex-col items-center">
           
           <FadeInWhenVisible>
@@ -100,6 +107,7 @@ export default function HomePage() {
           <Link href="/registration">
             <AuthButtonBottom />
           </Link>
+        </div>
         </div>
       </main>
     </>

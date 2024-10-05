@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { api } from '~/trpc/react';
 
 const UserInputForm: React.FC = () => {
-  const genereateIdea = api.post.generateIdea.useMutation({
+  const generateIdea = api.post.generateIdea.useMutation({
     onSuccess(data) {
-      console.log("This shit works")
-      console.log(data)
+      console.log("This works");
+      console.log(data);
+      setResponse(data);
     },
     onError() {
-      console.log("This shit not working");
+      console.log("This is not working");
+      setError('Failed to fetch data from the server.');
     }
   });
+
   const [schoolName, setSchoolName] = useState('');
   const [hackathonName, setHackathonName] = useState('');
   const [grade, setGrade] = useState('');
@@ -31,13 +33,13 @@ const UserInputForm: React.FC = () => {
         techStack,
         challenges,
       });
-      genereateIdea.mutate({
-        challenges,
-        grade,
-        hackathonName,
+      generateIdea.mutate({
         schoolName,
-        techStack
-      })
+        hackathonName,
+        grade,
+        techStack,
+        challenges,
+      });
     } catch (error) {
       console.error('Error fetching data from the server:', error);
       setError('Failed to fetch data from the server.');
@@ -88,7 +90,14 @@ const UserInputForm: React.FC = () => {
       {response && (
         <div className="mt-4 p-4 border border-[#a7a2a9] rounded bg-[#f1d302] text-[#3C3744]">
           <h3 className="text-xl font-bold">Response:</h3>
-          <pre>{JSON.stringify(response, null, 2)}</pre>
+          <ul>
+            {response.map((idea: any, index: number) => (
+              <li key={index}>
+                <h4>{idea.name}</h4>
+                <p><strong>Reason:</strong> {idea.reason}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
       {error && (
