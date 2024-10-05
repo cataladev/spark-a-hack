@@ -1,27 +1,46 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { api } from '~/trpc/react';
 
 const UserInputForm: React.FC = () => {
+  const genereateIdea = api.post.generateIdea.useMutation({
+    onSuccess(data) {
+      console.log("This shit works")
+      console.log(data)
+    },
+    onError() {
+      console.log("This shit not working");
+    }
+  });
   const [schoolName, setSchoolName] = useState('');
   const [hackathonName, setHackathonName] = useState('');
   const [grade, setGrade] = useState('');
   const [techStack, setTechStack] = useState('');
   const [challenges, setChallenges] = useState('');
   const [response, setResponse] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null); // Reset error state
     try {
-      const res = await axios.post('http://localhost:3000/api/generateIdea', {
+      console.log('Sending request to /api/generateIdea with data:', {
         schoolName,
         hackathonName,
         grade,
         techStack,
         challenges,
       });
-      setResponse(res.data);
+      genereateIdea.mutate({
+        challenges,
+        grade,
+        hackathonName,
+        schoolName,
+        techStack
+      })
     } catch (error) {
-      console.error(error);
+      console.error('Error fetching data from the server:', error);
+      setError('Failed to fetch data from the server.');
     }
   };
 
@@ -64,15 +83,18 @@ const UserInputForm: React.FC = () => {
           placeholder="Enter challenges"
           className="mb-2 p-2 border border-[#a7a2a9] rounded text-[#f1d302] bg-[#969195] placeholder-[#3C3744]"
         />
-        <button type="submit" className="rounded-full mt-5 px-8 py-4 text-[#f1d302] bg-[#3c3744] font-bold animate-fadeInslow hover:text-[#3c3744] hover:bg-[#f1d302] shadow transform transition hover:scale-110">
-          Submit
-        </button>
+        <button type="submit" className="bg-[#f1d302] text-[#3C3744] p-2 rounded">Submit</button>
       </form>
-
       {response && (
-        <div className="mt-4 p-4 border border-gray-300 rounded bg-white text-black">
-          <h3 className="text-xl font-bold">Generated Idea</h3>
+        <div className="mt-4 p-4 border border-[#a7a2a9] rounded bg-[#f1d302] text-[#3C3744]">
+          <h3 className="text-xl font-bold">Response:</h3>
           <pre>{JSON.stringify(response, null, 2)}</pre>
+        </div>
+      )}
+      {error && (
+        <div className="mt-4 p-4 border border-red-500 rounded bg-red-100 text-red-700">
+          <h3 className="text-xl font-bold">Error:</h3>
+          <p>{error}</p>
         </div>
       )}
     </div>

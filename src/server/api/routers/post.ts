@@ -1,14 +1,17 @@
-import { createTRPCRouter, protectedProcedure, publicProcedure } from "~/server/api/trpc";
-import { posts } from "~/server/db/schema";
-import { z } from "zod";
-import fs from "fs";
-import path from "path";
-import axios from "axios";
-import dotenv from "dotenv";
-import { sql } from 'drizzle-orm';
+import { createTRPCRouter, publicProcedure, protectedProcedure } from '~/server/api/trpc';
+import { z } from 'zod';
+import fs from 'fs';
+import path from 'path';
+import dotenv from 'dotenv';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { posts } from '~/server/db/schema';
 
 // Load environment variables from .env file
 dotenv.config();
+
+// Initialize the Google Generative AI client
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY as string);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Load descriptions from JSON file in the public folder
 const descriptionsPath = path.resolve(process.cwd(), "public", "jsondata.json");
@@ -32,16 +35,6 @@ export const postRouter = createTRPCRouter({
       });
     }),
 
-  getLatest: protectedProcedure.query(async ({ ctx }) => {
-    const latestPost = await ctx.db
-      .select()
-      .from(posts)
-      .orderBy(sql`${posts.createdAt} DESC`)
-      .limit(1)
-      .all();
-    return latestPost[0] || null;
-  }),
-
   generateIdea: publicProcedure
     .input(z.object({
       schoolName: z.string(),
@@ -58,13 +51,22 @@ export const postRouter = createTRPCRouter({
       };
 
       // Call Google Gemini API
-      const response = await axios.post("https://api.google.com/gemini/generate", requestData, {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.GOOGLE_GEMINI_API_KEY}`, // Use the API key from environment variables
-        },
-      });
+      let response: any;
+      try {
+        const prompt = JSON.stringify(requestData);
+        response = await model.generateContent(prompt);
+        console.log(response.response.text());
 
-      return response.data;
+        // Extract relevant information from the response
+        const ideas = response.response.text().map((idea: any) => ({
+          name: idea.name,
+          reason: idea.reason,
+        }));
+
+        return ideas;
+      } catch (err) {
+        console.error(err);
+        return { error: 'Failed to fetch data from the Gemini API.' };
+      }
     }),
 });
