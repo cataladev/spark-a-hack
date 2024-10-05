@@ -51,7 +51,7 @@ const NavBar = () => {
           <div className="space-x-4 ">
             <SignedOut>
               <SignInButton>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 animate-fadeInslow">
+              <button className="rounded-full px-4 py-2 text-[#f1d302] bg-[#3c3744] font-bold animate-fadeInslow hover:text-[#3c3744] hover:bg-[#f1d302] shadow transform transition hover:scale-110">
               Sign In
             </button>
             </SignInButton>
