@@ -10,10 +10,10 @@ interface FadeInWhenVisibleProps {
 const FadeInWhenVisible: React.FC<FadeInWhenVisibleProps> = ({ children }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }} // Start off-screen
-      whileInView={{ opacity: 1, y: 0 }} // Animate into place
-      viewport={{ once: true, amount: 0.5 }} // Trigger when 50% is in view
-      transition={{ duration: 0.6 }} // Fade duration
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }} 
+      viewport={{ once: true, amount: 0.5 }} 
+      transition={{ duration: 0.6 }} 
     >
       {children}
     </motion.div>
