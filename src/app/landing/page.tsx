@@ -20,18 +20,16 @@ export default async function Home() {
       <NavBar />
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#969195] to-[#3C3744] text-white">
         <div className="flex flex-col items-center justify-center">
-          <img src={PictureUrls[0]?.spark1url} alt="Spark 3" className="w-full max-w-4xl h-auto mt-10" />
-          {/* Add YouTube embed under the logo */}
+          <img src={PictureUrls[0]?.spark1url} alt="Spark 3" className="w-full max-w-4xl h-auto mt-32 animate-fadeIn" />
           <iframe
             width="560"
             height="315"
             src="https://www.youtube.com/embed/fwC46h0zUuE?si=nstQYTESOU1boN7Y"
             title="YouTube video player"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            className="mt-8"
+            className="mt-64 mb-64" 
           ></iframe>
         </div>
         <div className="flex-grow"></div>

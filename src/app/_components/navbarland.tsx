@@ -26,11 +26,11 @@ const NavBar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-2xl font-bold">
           <Link href="/landing"> 
-          <img src={PictureUrls[0]?.spark2url} alt="Landing" className="h-20 object-cover "/>
+          <img src={PictureUrls[0]?.spark2url} alt="Landing" className="h-20 object-cover animate-fadeIn"/>
           </Link>
         </div>
         <div className="space-x-4">
-        <Link href="/login"><button className="text-[#f1d302] bg-[#3c3744] font-bold rounded-full px-3 py-3 hover:text-[#3c3744] hover:bg-[#f1d302] shadow-lg hover:shadow-xl transform transition hover:scale-105">
+        <Link href="/login"><button className="text-[#f1d302] bg-[#3c3744] font-bold rounded-full px-3 py-3 hover:text-[#3c3744] hover:bg-[#f1d302] shadow-lg hover:shadow-xl transform transition hover:scale-105 animate-fadeIn">
                 Sign-In/Login
               </button>
             </Link>
