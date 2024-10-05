@@ -17,11 +17,11 @@ const NavBar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-2xl font-bold">
           <Link href="/landing"> 
-          <img src={PictureUrls[0].spark3url} alt="Landing" className="h-10 object-cover "/>
+          <img src={PictureUrls[0]?.spark3url} alt="Landing" className="h-10 object-cover "/>
           </Link>
         </div>
         <div className="space-x-4">
-          <Link href="/" className="text-white hover:text-gray-300">Sign-In</Link>
+          <Link href="/login" className="text-[#3c3744] bg-[#f1d302] font-bold rounded-full px-3 py-3 hover:text-gray-300">Sign-In/Login</Link>
         </div>
       </div>
     </nav>
