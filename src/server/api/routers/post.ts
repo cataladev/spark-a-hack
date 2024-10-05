@@ -1,11 +1,18 @@
-import { z } from "zod";
-
-import {
-  createTRPCRouter,
-  protectedProcedure,
-  publicProcedure,
-} from "~/server/api/trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "~/server/api/trpc";
 import { posts } from "~/server/db/schema";
+import { z } from "zod";
+import fs from "fs";
+import path from "path";
+import axios from "axios";
+import dotenv from "dotenv";
+import { sql } from 'drizzle-orm';
+
+// Load environment variables from .env file
+dotenv.config();
+
+// Load descriptions from JSON file in the public folder
+const descriptionsPath = path.resolve(process.cwd(), "public", "jsondata.json");
+const descriptions = JSON.parse(fs.readFileSync(descriptionsPath, "utf-8"));
 
 export const postRouter = createTRPCRouter({
   hello: publicProcedure
@@ -25,15 +32,39 @@ export const postRouter = createTRPCRouter({
       });
     }),
 
-  getLatest: publicProcedure.query(async ({ ctx }) => {
-    const post = await ctx.db.query.posts.findFirst({
-      orderBy: (posts, { desc }) => [desc(posts.createdAt)],
-    });
-
-    return post ?? null;
+  getLatest: protectedProcedure.query(async ({ ctx }) => {
+    const latestPost = await ctx.db
+      .select()
+      .from(posts)
+      .orderBy(sql`${posts.createdAt} DESC`)
+      .limit(1)
+      .all();
+    return latestPost[0] || null;
   }),
 
-  getSecretMessage: protectedProcedure.query(() => {
-    return "you can now see this secret message!";
-  }),
+  generateIdea: publicProcedure
+    .input(z.object({
+      schoolName: z.string(),
+      hackathonName: z.string(),
+      grade: z.string(),
+      techStack: z.string(),
+      challenges: z.string(),
+    }))
+    .mutation(async ({ input }) => {
+      // Combine user input with descriptions
+      const requestData = {
+        descriptions,
+        userInput: input,
+      };
+
+      // Call Google Gemini API
+      const response = await axios.post("https://api.google.com/gemini/generate", requestData, {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${process.env.GOOGLE_GEMINI_API_KEY}`, // Use the API key from environment variables
+        },
+      });
+
+      return response.data;
+    }),
 });
