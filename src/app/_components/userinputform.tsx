@@ -28,43 +28,45 @@ const UserInputForm: React.FC = () => {
   return (
     <div>
       <form onSubmit={handleSubmit} className="flex flex-col items-center">
-        <h2 className="text-2xl font-bold mb-4">Generate Idea</h2>
+        <h2 className="text-[#3C3744] bg-[#f1d302] mt-3 text-2xl font-bold mb-4 rounded-full px-2 py-1">Enter Your Detailed Info</h2>
         <input
           type="text"
           value={schoolName}
           onChange={(e) => setSchoolName(e.target.value)}
           placeholder="Enter school name"
-          className="mb-2 p-2 border border-gray-300 rounded text-black"
+          className="mb-2 p-2 border border-[#a7a2a9] rounded text-[#f1d302] bg-[#969195] placeholder-[#3C3744]"
         />
         <input
           type="text"
           value={hackathonName}
           onChange={(e) => setHackathonName(e.target.value)}
           placeholder="Enter hackathon name"
-          className="mb-2 p-2 border border-gray-300 rounded text-black"
+          className="mb-2 p-2 border border-[#a7a2a9] rounded text-[#f1d302] bg-[#969195] placeholder-[#3C3744]"
         />
         <input
           type="text"
           value={grade}
           onChange={(e) => setGrade(e.target.value)}
           placeholder="Enter grade"
-          className="mb-2 p-2 border border-gray-300 rounded text-black"
+          className="mb-2 p-2 border border-[#a7a2a9] rounded text-[#f1d302] bg-[#969195] placeholder-[#3C3744]"
         />
         <input
           type="text"
           value={techStack}
           onChange={(e) => setTechStack(e.target.value)}
           placeholder="Enter tech stack"
-          className="mb-2 p-2 border border-gray-300 rounded text-black"
+          className="mb-2 p-2 border border-[#a7a2a9] rounded text-[#f1d302] bg-[#969195] placeholder-[#3C3744]"
         />
         <input
           type="text"
           value={challenges}
           onChange={(e) => setChallenges(e.target.value)}
           placeholder="Enter challenges"
-          className="mb-2 p-2 border border-gray-300 rounded text-black"
+          className="mb-2 p-2 border border-[#a7a2a9] rounded text-[#f1d302] bg-[#969195] placeholder-[#3C3744]"
         />
-        <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">Submit</button>
+        <button type="submit" className="rounded-full mt-5 px-8 py-4 text-[#f1d302] bg-[#3c3744] font-bold animate-fadeInslow hover:text-[#3c3744] hover:bg-[#f1d302] shadow transform transition hover:scale-110">
+          Submit
+        </button>
       </form>
 
       {response && (
