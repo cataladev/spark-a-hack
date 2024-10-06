@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { api } from '~/trpc/react';
 import ReactMarkdown from 'react-markdown';
 
@@ -56,37 +56,41 @@ const UserInputForm: React.FC = () => {
           value={schoolName}
           onChange={(e) => setSchoolName(e.target.value)}
           placeholder="Enter school name"
-          className="mb-2 p-2 border border-[#a7a2a9] rounded text-[#f1d302] bg-[#969195] placeholder-[#3C3744]"
+          className="mb-4 p-2 border border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
         <input
           type="text"
           value={hackathonName}
           onChange={(e) => setHackathonName(e.target.value)}
           placeholder="Enter hackathon name"
-          className="mb-2 p-2 border border-[#a7a2a9] rounded text-[#f1d302] bg-[#969195] placeholder-[#3C3744]"
+          className="mb-4 p-2 border border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
         <input
           type="text"
           value={grade}
           onChange={(e) => setGrade(e.target.value)}
           placeholder="Enter grade"
-          className="mb-2 p-2 border border-[#a7a2a9] rounded text-[#f1d302] bg-[#969195] placeholder-[#3C3744]"
+          className="mb-4 p-2 border border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
         <input
           type="text"
           value={techStack}
           onChange={(e) => setTechStack(e.target.value)}
           placeholder="Enter tech stack"
-          className="mb-2 p-2 border border-[#a7a2a9] rounded text-[#f1d302] bg-[#969195] placeholder-[#3C3744]"
+          className="mb-4 p-2 border border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
         <input
           type="text"
           value={challenges}
           onChange={(e) => setChallenges(e.target.value)}
           placeholder="Enter challenges"
-          className="mb-2 p-2 border border-[#a7a2a9] rounded text-[#f1d302] bg-[#969195] placeholder-[#3C3744]"
+          className="mb-4 p-2 border border-[#f1d302] hover:border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
-        <button type="submit" className="bg-[#f1d302] text-[#3C3744] p-2 rounded">Submit</button>
+        
+        <button type="submit" className=" justify-center bg-[#f1d302] text-[#3C3744] p-4 rounded-full text-bold">
+          Submit
+        </button>
+      
       </form>
       {response && (
         <div className="mt-4 p-4 border border-[#a7a2a9] rounded bg-[#f1d302] text-[#3C3744]">
