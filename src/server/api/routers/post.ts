@@ -53,18 +53,13 @@ export const postRouter = createTRPCRouter({
       // Call Google Gemini API
       let response: any;
       try {
+        console.log("Request data:", requestData);
         const prompt = JSON.stringify(requestData);
         response = await model.generateContent(prompt);
         const responseText = await response.response.text();
         console.log(responseText);
 
-        // Assuming the responseText is a JSON string with an array of ideas
-        const ideas = JSON.parse(responseText).ideas.map((idea: any) => ({
-          name: idea.name,
-          reason: idea.reason,
-        }));
-
-        return ideas;
+        return responseText;
       } catch (err) {
         console.error(err);
         return { error: 'Failed to fetch data from the Gemini API.' };

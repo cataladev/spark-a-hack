@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { api } from '~/trpc/react';
+import ReactMarkdown from 'react-markdown';
 
 const UserInputForm: React.FC = () => {
   const generateIdea = api.post.generateIdea.useMutation({
@@ -19,7 +20,7 @@ const UserInputForm: React.FC = () => {
   const [grade, setGrade] = useState('');
   const [techStack, setTechStack] = useState('');
   const [challenges, setChallenges] = useState('');
-  const [response, setResponse] = useState<any>(null);
+  const [response, setResponse] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -90,14 +91,9 @@ const UserInputForm: React.FC = () => {
       {response && (
         <div className="mt-4 p-4 border border-[#a7a2a9] rounded bg-[#f1d302] text-[#3C3744]">
           <h3 className="text-xl font-bold">Response:</h3>
-          <ul>
-            {response.map((idea: any, index: number) => (
-              <li key={index}>
-                <h4>{idea.name}</h4>
-                <p><strong>Reason:</strong> {idea.reason}</p>
-              </li>
-            ))}
-          </ul>
+          <div className="space-y-4">
+            <ReactMarkdown>{response}</ReactMarkdown>
+          </div>
         </div>
       )}
       {error && (
