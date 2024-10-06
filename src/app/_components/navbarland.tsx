@@ -37,7 +37,7 @@ const PictureUrls = [
 const NavBar = () => {
   return (
     <div className={notoSans.className}>
-      <nav className="w-full bg-[#969195] p-4 shadow-md">
+      <nav className="w-full gradient-background p-4 shadow-md">
         <div className="container mx-auto flex items-center justify-between">
           <div className="text-2xl font-bold text-white">
             <Link href="/">
