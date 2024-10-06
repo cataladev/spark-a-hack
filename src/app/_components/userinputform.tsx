@@ -1,6 +1,12 @@
 import React, { useState, Component } from 'react';
 import { api } from '~/trpc/react';
 import ReactMarkdown from 'react-markdown';
+import { Noto_Sans } from "next/font/google";
+
+const notoSans = Noto_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 const UserInputForm: React.FC = () => {
   const generateIdea = api.post.generateIdea.useMutation({
@@ -25,7 +31,7 @@ const UserInputForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null); // Reset error state
+    setError(null); 
     try {
       console.log('Sending request to /api/generateIdea with data:', {
         schoolName,
@@ -69,14 +75,14 @@ const UserInputForm: React.FC = () => {
           type="text"
           value={grade}
           onChange={(e) => setGrade(e.target.value)}
-          placeholder="Enter grade"
+          placeholder="Enter grade level"
           className="mb-4 p-2 border border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
         <input
           type="text"
           value={techStack}
           onChange={(e) => setTechStack(e.target.value)}
-          placeholder="Enter tech stack"
+          placeholder="Enter technologies"
           className="mb-4 p-2 border border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
         <input
@@ -86,14 +92,15 @@ const UserInputForm: React.FC = () => {
           placeholder="Enter challenges"
           className="mb-4 p-2 border border-[#f1d302] hover:border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
-        
-        <button type="submit" className=" justify-center bg-[#f1d302] text-[#3C3744] p-4 rounded-full text-bold">
+        <div className={notoSans.className}> </div>
+        <button type="submit" className="rounded-full px-10 py-5 text-[#f1d302] bg-[#3C3744] font-bold hover:text-[#3c3744] hover:bg-[#f1d302] shadow animate-pulse transform transition hover:scale-110">
+
           Submit
         </button>
       
       </form>
       {response && (
-        <div className="mt-4 p-4 border border-[#a7a2a9] rounded bg-[#f1d302] text-[#3C3744]">
+        <div className="mt-4 p-4 border border-[#a7a2a9] rounded bg-[#f1d302] text-[#3C3744] hover:text-[#f1d302] hover:bg-[#3c3744] shadow animate-pulse transform transition hover:scale-110">
           <h3 className="text-xl font-bold">Response:</h3>
           <div className="space-y-4">
             <ReactMarkdown>{response}</ReactMarkdown>
