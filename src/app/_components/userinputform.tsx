@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { Noto_Sans } from "next/font/google";
 import { useInView } from 'react-intersection-observer';
 
+
 const notoSans = Noto_Sans({
   subsets: ['latin'],
   display: 'swap',
@@ -70,54 +71,55 @@ const UserInputForm: React.FC = () => {
           value={schoolName}
           onChange={(e) => setSchoolName(e.target.value)}
           placeholder="Enter school name"
-          className="mb-4 p-2 border border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
+          className="mb-4 p-2 border border-[#f1d302] mt-1 rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
         <input
           type="text"
           value={hackathonName}
           onChange={(e) => setHackathonName(e.target.value)}
           placeholder="Enter hackathon name"
-          className="mb-4 p-2 border border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
+          className="mb-4 p-2 border border-[#f1d302] mt-1 rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
         <input
           type="text"
           value={grade}
           onChange={(e) => setGrade(e.target.value)}
           placeholder="Enter grade level"
-          className="mb-4 p-2 border border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
+          className="mb-4 p-2 border border-[#f1d302] mt-1 rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
         <input
           type="text"
           value={techStack}
           onChange={(e) => setTechStack(e.target.value)}
           placeholder="Enter technologies"
-          className="mb-4 p-2 border border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
+          className="mb-4 p-2 border border-[#f1d302] mt-1 rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
         />
         <input
           type="text"
           value={challenges}
           onChange={(e) => setChallenges(e.target.value)}
           placeholder="Enter challenges"
-          className="mb-4 p-2 border border-[#f1d302] hover:border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744] placeholder-[#969195]"
+          className="mb-4 p-2 border border-[#f1d302] mt-1 hover:border-[#f1d302] rounded text-[#f1d302] bg-[#3C3744]"
         />
         <div className={notoSans.className}></div>
         <button
           type="submit"
-          className="rounded-full px-10 py-5 text-[#f1d302] bg-[#3C3744] font-bold hover:text-[#3c3744] hover:bg-[#f1d302] shadow animate-pulse transform transition hover:scale-110"
+          className="rounded-full px-10 py-5 mt-4 mb-16 text-[#f1d302] bg-[#3C3744] font-bold hover:text-[#3c3744] hover:bg-[#f1d302] shadow animate-pulse transform transition hover:scale-110"
         >
           Submit
         </button>
+      
       </form>
 
           {response && (
       <div
         ref={responseRef}
-        className={`mt-4 p-6 bg-[#f1d302] border-gray-300 rounded-lg shadow-lg transition-all duration-700 ease-in-out ${
+        className={`mt-4 p-6 bg-[#f1d302] border-gray-300 rounded-lg duration-700  text-[#f1d302] hover:text-[#f1d302] shadow transform transition hover:scale-105 ease-in-out ${
           responseInView ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
         } max-w-screen-md w-full mx-auto`}
       >
         <h3 className="text-xl font-bold text-[#3C3744] mb-2">Response:</h3>
-        <div className="space-y-4 text-[#3C3744] overflow-auto max-h-64 break-words">
+        <div className="space-y-4 text-[#3C3744] overflow-auto max-h-128 break-words">
           <ReactMarkdown>{response}</ReactMarkdown>
         </div>
       </div>

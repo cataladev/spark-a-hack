@@ -58,7 +58,7 @@ export default function HomePage() {
 
             <FadeInWhenVisible>
               <div className="flex w-full max-w-4xl mb-16 items-center">
-                <p className="text-l text-right text-[#f1d302] p-4 font-bold hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
+                <p className="text-l text-right p-4 font-bold text-[#f1d302] hover:text-[#3c3744] hover:bg-[#f1d302] transform transition hover:scale-110 w-[48%]">
                   {PictureUrls[0]?.description}
                 </p>
                 <div className="w-0.5 h-96 bg-[#3c3744] mx-8"></div>
