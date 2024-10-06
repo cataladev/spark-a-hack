@@ -42,6 +42,7 @@ const NavBar = () => {
           <div className="text-2xl font-bold text-white">
             <Link href="/">
               <img
+               title ="Home"
                 src={PictureUrls[0]?.spark2url}
                 alt="Landing"
                 className="h-20 object-cover animate-fadeIn transform transition hover:scale-110"
@@ -52,7 +53,7 @@ const NavBar = () => {
             <SignedOut>
               <SignInButton>
               <button className="rounded-full px-4 py-2 text-[#f1d302] bg-[#3c3744] font-bold animate-fadeInslow hover:text-[#3c3744] hover:bg-[#f1d302] shadow transform transition hover:scale-110">
-              Sign In
+              <p title ="Sign in">Sign In</p>
             </button>
             </SignInButton>
             </SignedOut>
